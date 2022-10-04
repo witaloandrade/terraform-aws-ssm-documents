@@ -1,0 +1,22 @@
+---
+schemaVersion: '2.2'
+description: example document
+mainSteps:
+- action: aws:runPowerShellScript
+  name: PatchWindows
+  precondition:
+    StringEquals:
+    - platformType
+    - Windows
+  inputs:
+    Command:
+    - hostname
+- action: aws:runShellScript
+  name: PatchLinux
+  precondition:
+    StringEquals:
+    - platformType
+    - Linux
+  inputs:
+    Command:
+    - hostname
